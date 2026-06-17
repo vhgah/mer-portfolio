@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    a{text-decoration:none}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#efe4d4;color:#2b201a;font-family:'Be Vietnam Pro',sans-serif;padding:48px 40px 80px">
+  <div style="max-width:1320px;margin:0 auto">
+
+    <header style="margin-bottom:36px">
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:#bf5b4a">Portfolio · Mer Mer</p>
+      <h1 style="font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-top:6px">Bảng chọn thiết kế</h1>
+      <p style="max-width:680px;margin-top:14px;font-size:16px;line-height:1.7;color:#5a4838">3 layout × 4 nhóm màu. Chọn một <strong>nhóm màu</strong> bên dưới — cả 3 bản xem trước sẽ đổi màu ngay lập tức. Bấm “Mở toàn màn hình” để xem bản đầy đủ theo đúng màu đang chọn.</p>
+    </header>
+
+    <!-- ===== PALETTE SWITCHER ===== -->
+    <div style="margin-bottom:14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8a7355;font-weight:600">Nhóm màu chủ đạo</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:44px">
+      <sc-for list="{{ palettes }}" as="p" hint-placeholder-count="4">
+        <button onClick="{{ p.onClick }}" style="{{ p.cardStyle }}">
+          <div style="display:flex;gap:0;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.08)">
+            <sc-for list="{{ p.swatch }}" as="c" hint-placeholder-count="5">
+              <span style="flex:1;height:38px;background:{{ c }}"></span>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div style="text-align:left">
+              <div style="font-size:15px;font-weight:700;color:#2b201a">{{ p.label }}</div>
+              <div style="font-size:12px;color:#8a7355;margin-top:1px">{{ p.note }}</div>
+            </div>
+            <span style="{{ p.dotStyle }}">{{ p.check }}</span>
+          </div>
+        </button>
+      </sc-for>
+    </div>
+
+    <!-- ===== PREVIEWS ===== -->
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+      <div style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8a7355;font-weight:600">Xem trước · cuộn trong từng khung</div>
+      <div style="font-size:13px;color:#5a4838">Đang xem màu: <strong style="color:#2b201a">{{ palLabel }}</strong></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px">
+
+      <!-- PA1 -->
+      <div style="background:#fff;border:1.5px solid #2b201a;border-radius:4px;overflow:hidden;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1.5px solid #2b201a">
+          <div><div style="font-size:15px;font-weight:700">PA1 · Editorial</div><div style="font-size:12px;color:#8a7355">Tạp chí, serif sang trọng</div></div>
+          <a href="{{ linkEditorial }}" target="_blank" style="font-size:12px;font-weight:600;color:#fff;background:#2b201a;padding:8px 12px;border-radius:999px;white-space:nowrap">Mở ↗</a>
+        </div>
+        <div style="position:relative;height:540px;background:#f6ede0">
+          <iframe ref="{{ refEditorial }}" src="Portfolio - Editorial.dc.html?p=pdf&amp;embed=1" title="PA1 Editorial" style="width:142.857%;height:142.857%;border:0;transform:scale(.7);transform-origin:top left"></iframe>
+        </div>
+      </div>
+
+      <!-- PA2 -->
+      <div style="background:#fff;border:1.5px solid #2b201a;border-radius:4px;overflow:hidden;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1.5px solid #2b201a">
+          <div><div style="font-size:15px;font-weight:700">PA2 · Playful Pop</div><div style="font-size:12px;color:#8a7355">Trẻ trung, sticker, nghịch</div></div>
+          <a href="{{ linkPlayful }}" target="_blank" style="font-size:12px;font-weight:600;color:#fff;background:#2b201a;padding:8px 12px;border-radius:999px;white-space:nowrap">Mở ↗</a>
+        </div>
+        <div style="position:relative;height:540px;background:#fff1e6">
+          <iframe ref="{{ refPlayful }}" src="Portfolio - Playful.dc.html?p=pdf&amp;embed=1" title="PA2 Playful" style="width:142.857%;height:142.857%;border:0;transform:scale(.7);transform-origin:top left"></iframe>
+        </div>
+      </div>
+
+      <!-- PA3 -->
+      <div style="background:#fff;border:1.5px solid #2b201a;border-radius:4px;overflow:hidden;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1.5px solid #2b201a">
+          <div><div style="font-size:15px;font-weight:700">PA3 · Bold Big-Type</div><div style="font-size:12px;color:#8a7355">Chữ lớn, brutalist ấm</div></div>
+          <a href="{{ linkBold }}" target="_blank" style="font-size:12px;font-weight:600;color:#fff;background:#2b201a;padding:8px 12px;border-radius:999px;white-space:nowrap">Mở ↗</a>
+        </div>
+        <div style="position:relative;height:540px;background:#ece3d2">
+          <iframe ref="{{ refBold }}" src="Portfolio - Bold.dc.html?p=pdf&amp;embed=1" title="PA3 Bold" style="width:142.857%;height:142.857%;border:0;transform:scale(.7);transform-origin:top left"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:40px;font-size:13px;color:#8a7355;max-width:720px;line-height:1.7">Các khung ảnh trong portfolio đang là placeholder — gửi mình ảnh chân dung, ảnh sự kiện, ảnh múa/nhảy và tranh vẽ để mình thay vào. Nhóm màu “Hồng Pastel” lấy đúng tông chủ đạo trong file PDF gốc.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { pal: 'pdf', list: [] };
+  componentDidMount() {
+    import('./palettes.js').then((m) => {
+      this._m = m;
+      this.setState({ list: m.PALETTE_ORDER.map((k) => ({ key: k, ...m.PALETTES[k] })) });
+    }).catch(() => {});
+  }
+  setPal(key) {
+    this.setState({ pal: key });
+    ['editorial', 'playful', 'bold'].forEach((n) => {
+      const f = this['_f_' + n];
+      if (f && f.contentWindow) {
+        try { f.contentWindow.postMessage({ type: 'setPalette', key }, '*'); } catch (e) {}
+      }
+    });
+  }
+  renderVals() {
+    const pal = this.state.pal;
+    const cur = (this._m && this._m.PALETTES[pal]) || null;
+    const palettes = this.state.list.map((p) => {
+      const active = p.key === pal;
+      return {
+        ...p,
+        onClick: () => this.setPal(p.key),
+        check: active ? '✓' : '',
+        cardStyle: [
+          'cursor:pointer', 'text-align:left', 'font-family:inherit',
+          'background:' + (active ? '#fff' : '#f6ede0'),
+          'border:' + (active ? '2.5px solid #2b201a' : '1.5px solid #d8c3a6'),
+          'border-radius:14px', 'padding:14px', 'transition:all .15s',
+          'box-shadow:' + (active ? '0 6px 18px rgba(43,32,26,.14)' : 'none'),
+        ].join(';'),
+        dotStyle: [
+          'width:24px', 'height:24px', 'border-radius:50%', 'flex:none',
+          'display:flex', 'align-items:center', 'justify-content:center',
+          'font-size:13px', 'font-weight:700', 'color:#fff',
+          'background:' + (active ? '#2b201a' : 'transparent'),
+          'border:' + (active ? 'none' : '1.5px solid #c9b59a'),
+        ].join(';'),
+      };
+    });
+    return {
+      palettes,
+      palLabel: cur ? cur.label : '…',
+      linkEditorial: 'Portfolio - Editorial.dc.html?p=' + pal,
+      linkPlayful: 'Portfolio - Playful.dc.html?p=' + pal,
+      linkBold: 'Portfolio - Bold.dc.html?p=' + pal,
+      refEditorial: (el) => { this._f_editorial = el; },
+      refPlayful: (el) => { this._f_playful = el; },
+      refBold: (el) => { this._f_bold = el; },
+    };
+  }
+}
+</script>
+</body>
+</html>

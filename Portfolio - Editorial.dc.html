@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700;1,900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    ::selection{background:var(--accent,#c4502e);color:var(--bg,#f6ede0)}
+    @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  </style>
+</helmet>
+<div ref="{{ setRoot }}" style="--bg:#fbeef4;--bg2:#f4e4ef;--ink:#3a2535;--accent:#d65f93;--accent2:#7fa9e0;--accent3:#8ed0c2;--accent4:#b58fd6;--accent5:#f2a6c4;--accent-soft:#f3c5da;--muted:#9a7d8e;--line2:#e6cfde;--on-dark:#fbeef4;--on-dark-muted:#d6bccd;--ph-a:#f1d9e7;--ph-b:#e8c9dc;--ph-da:#4a3343;--ph-db:#573a50;background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',sans-serif;overflow-x:hidden;position:relative">
+
+  <div style="position:fixed;top:0;left:0;height:4px;width:{{ progress }};background:var(--accent);z-index:100;transition:width .08s linear"></div>
+
+  <!-- top bar -->
+  <div style="position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--bg);border-bottom:1px solid var(--line2)">
+    <div style="font-family:'Playfair Display',serif;font-weight:800;letter-spacing:.16em;font-size:14px">MER&nbsp;MER</div>
+    <div style="display:flex;gap:26px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">
+      <a href="#gioithieu" style="color:inherit;text-decoration:none">Giới thiệu</a>
+      <a href="#kynang" style="color:inherit;text-decoration:none">Kỹ năng</a>
+      <a href="#kinhnghiem" style="color:inherit;text-decoration:none">Kinh nghiệm</a>
+      <a href="#another" style="color:inherit;text-decoration:none">Another Mer</a>
+      <a href="#2026" style="color:inherit;text-decoration:none">2026</a>
+    </div>
+    <div style="font-size:12px;letter-spacing:.1em;color:var(--accent);font-weight:600">PORTFOLIO ’26</div>
+  </div>
+
+  <!-- ===== HERO / MASTHEAD ===== -->
+  <header style="padding:60px 40px 40px;border-bottom:2px solid var(--ink);position:relative">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:30px">
+      <span>Số 01 — Ấn bản cá nhân</span>
+      <span style="color:var(--accent)">Internal Communication Executive</span>
+      <span>Hà Nội · 2026</span>
+    </div>
+
+    <div style="display:flex;gap:50px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:1;min-width:340px">
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:26px;color:var(--accent);margin-bottom:6px">Xin chào, tớ là</p>
+        <h1 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(72px,11vw,168px);line-height:.86;letter-spacing:-.02em">Hồng&nbsp;Mơ</h1>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(24px,3.4vw,44px);line-height:1;margin-top:8px;color:var(--ink)">— “Mer&nbsp;Mer”</p>
+
+        <p style="max-width:520px;margin-top:30px;font-size:17px;line-height:1.7;color:var(--ink)">
+          Nguyễn Nông Hồng Mơ, 27 tuổi, đến từ Cao Bằng. “Đóa hoa nở muộn” của ngành
+          <strong style="color:var(--accent);font-weight:600">Truyền thông Nội bộ &amp; Phát triển Văn hóa Doanh nghiệp</strong> — rẽ ngang vào nghề ở tuổi 25 và cháy hết mình kể từ đó.
+        </p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1.5px solid var(--ink);border-radius:999px;font-size:13px;font-weight:600">Nhiệt Thành</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1.5px solid var(--accent);background:var(--accent);color:var(--bg);border-radius:999px;font-size:13px;font-weight:600">Sáng Tạo</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1.5px solid var(--ink);border-radius:999px;font-size:13px;font-weight:600">Tận Tâm</span>
+        </div>
+      </div>
+
+      <div style="width:300px;flex:none">
+        <div style="position:relative;aspect-ratio:3/4;border:1.5px solid var(--ink);background:repeating-linear-gradient(135deg,var(--ph-a),var(--ph-a) 13px,var(--ph-b) 13px,var(--ph-b) 26px);display:flex;align-items:center;justify-content:center">
+          <span style="font-family:monospace;font-size:12px;color:var(--muted);letter-spacing:.05em">[ chân dung Mer ]</span>
+          <span style="position:absolute;top:-13px;left:18px;background:var(--accent);color:var(--bg);font-size:11px;letter-spacing:.18em;padding:4px 12px;text-transform:uppercase">Cover</span>
+        </div>
+        <div style="margin-top:16px;font-size:12.5px;line-height:1.9;color:var(--muted);border-top:1px solid var(--line2);padding-top:12px">
+          <div style="display:flex;justify-content:space-between"><span>Email</span><strong style="color:var(--ink);font-weight:600">merbaragi@gmail.com</strong></div>
+          <div style="display:flex;justify-content:space-between"><span>Điện thoại</span><strong style="color:var(--ink);font-weight:600">0854.968.599</strong></div>
+          <div style="display:flex;justify-content:space-between"><span>Zalo / IG</span><strong style="color:var(--ink);font-weight:600">Haebaragi1179</strong></div>
+          <div style="display:flex;justify-content:space-between"><span>Địa chỉ</span><strong style="color:var(--ink);font-weight:600">182 Lương Thế Vinh</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:46px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:12px 0;overflow:hidden;white-space:nowrap">
+      <div style="display:inline-block;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--ink);animation:mq 26s linear infinite">
+        Truyền thông nội bộ&nbsp;·&nbsp;<span style="color:var(--accent)">Sáng tạo concept</span>&nbsp;·&nbsp;MC &amp; dẫn chương trình&nbsp;·&nbsp;Văn hóa doanh nghiệp&nbsp;·&nbsp;Tổ chức sự kiện&nbsp;·&nbsp;<span style="color:var(--accent)">Storytelling</span>&nbsp;·&nbsp;Múa &amp; biên đạo&nbsp;·&nbsp;Graphic design&nbsp;·&nbsp;Truyền thông nội bộ&nbsp;·&nbsp;<span style="color:var(--accent)">Sáng tạo concept</span>&nbsp;·&nbsp;MC &amp; dẫn chương trình&nbsp;·&nbsp;Văn hóa doanh nghiệp&nbsp;·&nbsp;Tổ chức sự kiện&nbsp;·&nbsp;<span style="color:var(--accent)">Storytelling</span>&nbsp;·&nbsp;Múa &amp; biên đạo&nbsp;·&nbsp;Graphic design&nbsp;·&nbsp;
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== GIỚI THIỆU ===== -->
+  <section id="gioithieu" style="padding:90px 40px;border-bottom:2px solid var(--ink)">
+    <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:50px">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--accent)">I.</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(40px,6vw,80px);line-height:1">Giới thiệu</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start">
+      <div>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.4;color:var(--ink);font-weight:500">
+          <span style="float:left;font-size:88px;line-height:.74;font-weight:900;color:var(--accent);margin:6px 14px 0 0;font-style:italic">T</span>rong 2 năm tìm hiểu, học hỏi và làm nghề, tớ được sếp và đồng nghiệp đánh giá là người
+          <em style="color:var(--accent)">nhiệt thành, sáng tạo và tận tâm</em> với mọi việc mình làm.
+        </p>
+        <p style="margin-top:28px;font-size:16px;line-height:1.85;color:var(--ink);column-count:2;column-gap:36px">
+          Tớ tin rằng truyền thông nội bộ không chỉ là những bài đăng hay tấm poster — đó là cách một doanh nghiệp lắng nghe, kết nối và khiến mỗi nhân sự cảm thấy mình thuộc về. Tớ đến với nghề muộn, nhưng chính vì thế mà tớ trân trọng từng cơ hội được kể chuyện, được tạo ra những điểm chạm cảm xúc và được nhìn thấy văn hóa công ty lớn lên mỗi ngày.
+        </p>
+      </div>
+
+      <div style="background:var(--ink);color:var(--on-dark);padding:38px 34px;position:relative">
+        <span style="position:absolute;top:-14px;left:24px;background:var(--accent);color:var(--bg);font-size:11px;letter-spacing:.2em;padding:5px 13px;text-transform:uppercase">Mục tiêu 5 năm</span>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:24px;line-height:1.45;margin-top:6px">
+          Trở thành <span style="color:var(--accent-soft)">Trưởng nhóm Truyền thông Nội bộ &amp; Phát triển Văn hóa Doanh nghiệp.</span>
+        </p>
+        <ul style="list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:14px">
+          <li style="display:flex;gap:12px;font-size:14.5px;line-height:1.5;color:var(--on-dark-muted)"><span style="color:var(--accent-soft)">→</span>Kiến thức vững về truyền thông</li>
+          <li style="display:flex;gap:12px;font-size:14.5px;line-height:1.5;color:var(--on-dark-muted)"><span style="color:var(--accent-soft)">→</span>Tư duy lập kế hoạch tốt</li>
+          <li style="display:flex;gap:12px;font-size:14.5px;line-height:1.5;color:var(--on-dark-muted)"><span style="color:var(--accent-soft)">→</span>Nhạy bén với công nghệ &amp; AI</li>
+          <li style="display:flex;gap:12px;font-size:14.5px;line-height:1.5;color:var(--on-dark-muted)"><span style="color:var(--accent-soft)">→</span>Tư duy thẩm mỹ &amp; tư duy hệ thống</li>
+          <li style="display:flex;gap:12px;font-size:14.5px;line-height:1.5;color:var(--on-dark-muted)"><span style="color:var(--accent-soft)">→</span>Năng lực quản lý tương ứng vị trí</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KỸ NĂNG ===== -->
+  <section id="kynang" style="padding:90px 40px;border-bottom:2px solid var(--ink);background:var(--bg2)">
+    <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:50px">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--accent)">II.</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(40px,6vw,80px);line-height:1">Kỹ năng</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border:1.5px solid var(--ink)">
+      <div style="padding:30px 28px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">01</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 14px">Hình ảnh &amp; Video</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink)">Edit video, sửa ảnh, Graphic Design, thiết kế POSM cho sự kiện &amp; bài truyền thông.</p>
+      </div>
+      <div style="padding:30px 28px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">02</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 14px">Viết &amp; Nội dung</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink)">Bài đăng social, storytelling, kịch bản video, kịch bản MC.</p>
+      </div>
+      <div style="padding:30px 28px;border-bottom:1.5px solid var(--ink)">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">03</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 14px">Dẫn chương trình</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink)">MC sự kiện nội bộ, gameshow, talkshow — “she’s on the mic”.</p>
+      </div>
+      <div style="padding:30px 28px;border-right:1.5px solid var(--ink)">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">04</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 14px">Múa &amp; Biên đạo</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink)">Hiphop basic &amp; free style, múa dân gian đương đại, biên đạo múa cơ bản.</p>
+      </div>
+      <div style="padding:30px 28px;border-right:1.5px solid var(--ink)">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">05</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 14px">Vẽ minh họa</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--ink)">Vẽ cơ bản trên iPad — minh họa cho nội dung &amp; trang trí nội bộ.</p>
+      </div>
+      <div style="padding:30px 28px;background:var(--accent);color:var(--bg);display:flex;flex-direction:column;justify-content:center">
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.3">Một người làm truyền thông biết kể chuyện bằng nhiều ngôn ngữ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KINH NGHIỆM ===== -->
+  <section id="kinhnghiem" style="padding:90px 40px;border-bottom:2px solid var(--ink)">
+    <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:18px">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--accent)">III.</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(40px,6vw,80px);line-height:1">Kinh nghiệm</h2>
+    </div>
+    <p style="color:var(--muted);font-size:14px;letter-spacing:.04em;margin-bottom:54px;max-width:560px">Hành trình từ chứng từ xuất khẩu hàng không đến trái tim của truyền thông nội bộ.</p>
+
+    <!-- FACOLOS -->
+    <article style="display:grid;grid-template-columns:200px 1fr;gap:40px;padding-bottom:50px;margin-bottom:50px;border-bottom:1px solid var(--line2)">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:80px;line-height:.8;color:var(--accent);font-style:italic">01</div>
+        <div style="margin-top:14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">5/2025 — hiện tại</div>
+        <div style="margin-top:6px;font-size:11px;color:var(--muted)">140 nhân sự</div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:28px">Công ty CP Thể thao Facolos</h3>
+        <p style="color:var(--accent);font-weight:600;font-size:14px;margin-top:4px">Nhân viên Truyền thông Nội bộ &amp; Phát triển Văn hóa Doanh nghiệp</p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin:24px 0">
+          <div style="border:1.5px solid var(--ink);padding:14px 20px;min-width:130px"><div style="font-family:'Playfair Display',serif;font-weight:900;font-size:34px;color:var(--accent)">85%</div><div style="font-size:12px;color:var(--muted);margin-top:2px">trải nghiệm sự kiện<br>xuất sắc &amp; tốt</div></div>
+          <div style="border:1.5px solid var(--ink);padding:14px 20px;min-width:130px"><div style="font-family:'Playfair Display',serif;font-weight:900;font-size:34px;color:var(--accent)">30→70%</div><div style="font-size:12px;color:var(--muted);margin-top:2px">tỷ lệ tham gia<br>Pickle Hours</div></div>
+          <div style="border:1.5px solid var(--ink);padding:14px 20px;min-width:130px"><div style="font-family:'Playfair Display',serif;font-weight:900;font-size:34px;color:var(--accent)">17+</div><div style="font-size:12px;color:var(--muted);margin-top:2px">sự kiện nội bộ<br>lớn nhỏ</div></div>
+        </div>
+
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;font-size:14.5px;line-height:1.6;color:var(--ink)">
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Nghiên cứu insight nội bộ, cân đối mục tiêu doanh nghiệp với insight nhân sự để lập kế hoạch &amp; ngân sách TTNB 2025–2026.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Điều phối thành công 3 sự kiện lớn: Company Trip “Bắt Sóng”, Trekking núi Lùng Cúng, Year End Party “Rise Beyond Limits”.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Truyền thông thông suốt chiến lược, tầm nhìn từ BOD đến nhân sự; lắng nghe &amp; xử lý kịp thời, ngăn chặn khủng hoảng nội bộ.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Tổ chức khóa đào tạo “Marketing bằng Video Ngắn” cùng Tiktoker Nguyễn Thủy Tiên (Founder &amp; CEO ZUNE.ZX).</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Sáng tạo concept Men’s Day “Facolos Game” (cảm hứng từ MV <em>Love Game</em> — Low G, Tlinh) với cuộc thi Nam Vương Bê Nước.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Lên concept decor văn phòng dịp Trung Thu, Quốc Khánh, Giáng Sinh, năm mới; phối hợp phòng Design tối ưu công năng.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Phối hợp tuyển dụng xây kênh TikTok Employer Branding “Facolos Careers”, sáng tạo nội dung page &amp; nhóm F-zone.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- VUA NEM -->
+    <article style="display:grid;grid-template-columns:200px 1fr;gap:40px;padding-bottom:50px;margin-bottom:50px;border-bottom:1px solid var(--line2)">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:80px;line-height:.8;color:var(--accent);font-style:italic">02</div>
+        <div style="margin-top:14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">11/2024 — 4/2025</div>
+        <div style="margin-top:6px;font-size:11px;color:var(--muted)">hơn 600 nhân sự</div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:28px">Công ty CP Vua Nệm</h3>
+        <p style="color:var(--accent);font-weight:600;font-size:14px;margin-top:4px">Thực tập sinh Truyền thông Nội bộ &amp; Phát triển Văn hóa Doanh nghiệp</p>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--ink);margin:16px 0 18px">“she’s on the mic”</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;font-size:14.5px;line-height:1.6;color:var(--ink)">
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Xây dựng kịch bản, set up &amp; chạy sự kiện nội bộ: YEP Hà Nội (200+ nhân sự), Giáng sinh, 8/3, Thứ Tư Vui Vẻ (~100 người).</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>MC chương trình Best’s Day (Men’s Day kết hợp Ngày Nhà giáo VN) &amp; dẫn “Thứ Tư Vui Vẻ”.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Admin điều phối dự án VHDN “Integrity: Gen of Vuners” — quý IV.2025.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Lập kế hoạch truyền thông cho CLB Cầu lông &amp; CLB Bóng đá; viết content, thiết kế ảnh bài đăng nội bộ.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Chụp &amp; chỉnh ảnh sự kiện; lên layout &amp; trang trí Giáng Sinh, Tết; quản lý tạm ứng – hoàn ứng.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- KGL -->
+    <article style="display:grid;grid-template-columns:200px 1fr;gap:40px">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:80px;line-height:.8;color:var(--accent);font-style:italic">03</div>
+        <div style="margin-top:14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">3/2022 — 3/2024</div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:28px">Công ty TNHH KGL Việt Nam</h3>
+        <p style="color:var(--accent);font-weight:600;font-size:14px;margin-top:4px">Nhân viên Chứng từ Xuất khẩu đường Hàng không</p>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--ink);margin:16px 0 8px">“she’s on the stage” — ngoài chuyên môn</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;font-size:14.5px;line-height:1.6;color:var(--ink)">
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Hỗ trợ phòng Nhân sự – Kế toán tổ chức team building, sinh nhật công ty &amp; thành viên, liên hoan; xây kịch bản &amp; MC tiệc cuối năm.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Hỗ trợ phiên dịch tiếng Hàn cơ bản trong một số sự kiện nội bộ cho lãnh đạo.</li>
+          <li style="display:flex;gap:12px"><span style="color:var(--accent);font-weight:700">/</span>Dạy múa &amp; biên đạo đơn giản cho đội thi văn nghệ phòng Air Export.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== ANOTHER MER ===== -->
+  <section id="another" style="padding:90px 40px;border-bottom:2px solid var(--ink);background:var(--ink);color:var(--on-dark)">
+    <div style="text-align:center;margin-bottom:14px">
+      <span style="font-family:monospace;font-size:12px;letter-spacing:.3em;color:var(--accent-soft)">A NOTHER SIDE OF</span>
+    </div>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(56px,11vw,150px);line-height:.9;text-align:center;letter-spacing:-.02em">Another Mer</h2>
+    <p style="text-align:center;max-width:520px;margin:22px auto 56px;color:var(--on-dark-muted);font-size:16px;line-height:1.7">Ngoài giờ làm truyền thông, Mer là một cô gái rất “cháy” và rất “thơ” — sống trọn với đam mê múa, nhảy và vẽ.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:16px"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:30px;color:var(--accent-soft)">Mer rất cháy</span><span style="font-size:12px;color:var(--on-dark-muted)">— khi múa &amp; khi nhảy</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="aspect-ratio:3/4;border:1px solid var(--ph-db);background:repeating-linear-gradient(135deg,var(--ph-da),var(--ph-da) 13px,var(--ph-db) 13px,var(--ph-db) 26px);display:flex;align-items:center;justify-content:center"><span style="font-family:monospace;font-size:11px;color:var(--on-dark-muted)">[ Mer khi múa ]</span></div>
+          <div style="aspect-ratio:3/4;border:1px solid var(--ph-db);background:repeating-linear-gradient(135deg,var(--ph-da),var(--ph-da) 13px,var(--ph-db) 13px,var(--ph-db) 26px);display:flex;align-items:center;justify-content:center"><span style="font-family:monospace;font-size:11px;color:var(--on-dark-muted)">[ Mer khi nhảy ]</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:16px"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:30px;color:var(--accent-soft)">Mer rất thơ</span><span style="font-size:12px;color:var(--on-dark-muted)">— tranh Mer vẽ trên iPad</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+          <div style="aspect-ratio:3/4;border:1px solid var(--ph-db);background:repeating-linear-gradient(135deg,var(--ph-da),var(--ph-da) 13px,var(--ph-db) 13px,var(--ph-db) 26px);display:flex;align-items:center;justify-content:center"><span style="font-family:monospace;font-size:10px;color:var(--on-dark-muted)">[ tranh 01 ]</span></div>
+          <div style="aspect-ratio:3/4;border:1px solid var(--ph-db);background:repeating-linear-gradient(135deg,var(--ph-da),var(--ph-da) 13px,var(--ph-db) 13px,var(--ph-db) 26px);display:flex;align-items:center;justify-content:center"><span style="font-family:monospace;font-size:10px;color:var(--on-dark-muted)">[ tranh 02 ]</span></div>
+          <div style="aspect-ratio:3/4;border:1px solid var(--ph-db);background:repeating-linear-gradient(135deg,var(--ph-da),var(--ph-da) 13px,var(--ph-db) 13px,var(--ph-db) 26px);display:flex;align-items:center;justify-content:center"><span style="font-family:monospace;font-size:10px;color:var(--on-dark-muted)">[ tranh 03 ]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KẾ HOẠCH 2026 ===== -->
+  <section id="2026" style="padding:90px 40px;border-bottom:2px solid var(--ink);background:var(--bg2)">
+    <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:10px">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--accent)">IV.</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(36px,5.4vw,72px);line-height:1">Kế hoạch “nâng cấp” Mer&nbsp;Mer</h2>
+    </div>
+    <p style="color:var(--muted);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:48px">Lộ trình phát triển 2026</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <div style="background:var(--bg);border:1.5px solid var(--ink);padding:30px">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">01 / MC</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 16px">Học MC tại Be Bold</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.6;color:var(--ink)">
+          <li>· Viết kịch bản MC, radio chuyên nghiệp hơn</li>
+          <li>· “Nâng cấp” giọng nói &amp; phong thái dẫn</li>
+          <li>· Rèn kỹ năng ứng biến khi phát sinh sự cố</li>
+        </ul>
+      </div>
+      <div style="background:var(--bg);border:1.5px solid var(--ink);padding:30px">
+        <span style="font-family:monospace;font-size:12px;color:var(--accent)">02 / Khóa học</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 16px">Chuyên môn &amp; dữ liệu</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.6;color:var(--ink)">
+          <li>· Content Social Marketing</li>
+          <li>· Phân tích dữ liệu</li>
+        </ul>
+      </div>
+      <div style="background:var(--accent);color:var(--bg);padding:30px">
+        <span style="font-family:monospace;font-size:12px;color:var(--bg)">03 / Tự học</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:8px 0 16px">Tư duy &amp; công nghệ</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.6;color:var(--bg)">
+          <li>· Xây workflow tự động hóa với AI</li>
+          <li>· Tư duy thiết kế</li>
+          <li>· Tư duy hệ thống — sách &amp; podcast Cấy Nền (GS Phan Văn Trường)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="padding:100px 40px 60px;text-align:center">
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--accent)">Cảm ơn đã đọc đến đây —</p>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(64px,15vw,220px);line-height:.85;letter-spacing:-.02em;margin:6px 0 36px">Thank you</h2>
+    <div style="display:inline-flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="mailto:merbaragi@gmail.com" style="text-decoration:none;color:var(--bg);background:var(--ink);padding:14px 26px;border-radius:999px;font-size:14px;font-weight:600">merbaragi@gmail.com</a>
+      <span style="padding:14px 26px;border:1.5px solid var(--ink);border-radius:999px;font-size:14px;font-weight:600">0854.968.599</span>
+      <span style="padding:14px 26px;border:1.5px solid var(--ink);border-radius:999px;font-size:14px;font-weight:600">IG / Zalo · Haebaragi1179</span>
+    </div>
+    <p style="margin-top:40px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">Nguyễn Nông Hồng Mơ · Internal Communication Executive · Portfolio 2026</p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { progress: '0%' };
+  componentDidMount() {
+    this._onScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      this.setState({ progress: p.toFixed(1) + '%' });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+
+    import('./palettes.js').then((m) => {
+      this._pal = m;
+      const apply = (key) => this._root && m.applyPalette(this._root, key);
+      apply(m.getPaletteKeyFromUrl());
+      this._onMsg = (e) => { if (e.data && e.data.type === 'setPalette') apply(e.data.key); };
+      window.addEventListener('message', this._onMsg);
+    }).catch(() => {});
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._onMsg) window.removeEventListener('message', this._onMsg);
+  }
+  renderVals() {
+    return { progress: this.state.progress, setRoot: (el) => { this._root = el; } };
+  }
+}
+</script>
+</body>
+</html>
